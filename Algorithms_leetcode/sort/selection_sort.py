@@ -27,4 +27,4 @@ def selection_sort(list):
 if __name__ == '__main__':
     list = [6,5,4,3,2,1]
     result = selection_sort(list)
-    print(list)
+    print(result)

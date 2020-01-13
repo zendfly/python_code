@@ -28,4 +28,4 @@ def insertion_sort(arr):
 if __name__ == '__main__':
     list = [6,5,4,3,2,1]
     result = insertion_sort(list)
-    print(list)
+    print(result)

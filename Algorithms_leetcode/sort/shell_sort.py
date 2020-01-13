@@ -31,14 +31,13 @@ def shell_sort(list):
         print('-------------------------------')
     return list
 
+
 def shellSort(arr):
     import math
     gap=1
     while(gap < len(arr)/3):
         gap = gap*3+1
-    print(gap)
     while gap > 0:
-        print('gap%s'%(gap))
         #从后往前找
         for i in range(gap,len(arr)):
             temp = arr[i]       #当前需要插入的元素
@@ -47,10 +46,10 @@ def shellSort(arr):
                 arr[j+gap] = arr[j]
                 j -= gap
             arr[j+gap] = temp
-        print('list:%s'%(list))
         gap = math.floor(gap/3)
     return arr
+
 if __name__ == '__main__':
     list = [6,5,4,3,2,1]
     result = shellSort(list)
-    print(list)
+    print(result)
