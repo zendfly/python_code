@@ -1,37 +1,48 @@
-#两个链表合并，循环结束条件是 L1和L2都循环到最后一个节点
+"""
+合并两个有序列表(list_a,list_b)
+    循环结束条件是 L1和L2都循环到最后一个节点
+"""
 
+class Solution():
+    """
+    合并两个列表（list)
+    :return new_list 一个新的列表
+    """
+    def __init__(self,list_a,list_b):
+        #初始化全局参数
+        self.list_a = list_a
+        self.list_b = list_b
 
-#失败
-def addTwoNumbers(l1,l2):
+    def add_two_link(self):
 
-    min_len ,max_len = min(len(l1),len(l2)),max(len(l1),len(l2))
-    out_list = [0] * int(max_len+1)
-    i = 0
-    while i < max_len:
-        if l1[i] is None:
-            l1[i] =0
-        if i > len(l2):
-            l2[i] =0
-        index_i_sum = l1[i] + l2[i]
-        index_i_1, index_i_2 = index_i_sum // 10, index_i_sum % 10  # index_i_1取整，index_i_2求余
+        new_list = []
+        list_a_length = len(self.list_a)
+        list_b_length = len(self.list_b)
+        i,j = 0,0
+        while i < list_a_length and j < list_b_length:
 
-        if index_i_1 == 1:
-            out_list[i] += index_i_2
-            out_list[i + 1] += 1
-        else:
-            out_list[i] = index_i_sum
-        i += 1
-    if out_list[-1] == 0:
-        out_list.pop()
+            if self.list_a[i] < self.list_b[j]:
+                new_list.append(self.list_a[i])
+                #self.list_a.pop(i)
+                i += 1
+            else:
+                new_list.append(self.list_b[j])
+                #self.list_b.pop(j)
+                j += 1
 
-    return out_list
+        if i <= list_a_length:
+            for ii in self.list_a[i:]:
+                new_list.append(ii)
+
+        if j <= list_b_length:
+            for jj in self.list_b[j:]:
+                new_list.append(jj)
+
+        return new_list
+
 
 if __name__ == '__main__':
-    l1 = [1,3,9]
-    l2 = [3,2,4,1]
-    print(addTwoNumbers(l1,l2))
-
-
-
-
-
+    list1 = [1, 5, 7, 7, 19, 75]
+    list2 = [5, 7, 9, 64, 186, 879]
+    res = Solution(list1,list2).add_two_link()
+    print(res)
