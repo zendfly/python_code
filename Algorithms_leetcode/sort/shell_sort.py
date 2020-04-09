@@ -13,12 +13,12 @@ def shell_sort(list):
     if list is None:
         return None
 
-    gap = len(list)     #增量，初始增量为len(list)
+    gap = len(list)     #增量，初始增量为len(list)，初始的组数
     length = len(list)
     print(gap)
     while gap>0:
         # print('gap:%s'%(gap))
-        for i in range(gap,length):
+        for i in range(gap,length):     # 当gap=length时，i=gap, j从gap 到
             # print('i%s'%(i))
             for j in range(i,gap-1,-gap):
                 # print('j%s'%j)
@@ -37,8 +37,7 @@ def shellSort(arr):
     gap=1
     while(gap < len(arr)/3):
         gap = gap*3+1
-    while gap > 0:
-        #从后往前找
+    while gap > 0:     # 分组数大于0，gap即时组数，也是间隔数
         for i in range(gap,len(arr)):
             temp = arr[i]       #当前需要插入的元素
             j = i-gap       #temp元素前gap步长的元素
