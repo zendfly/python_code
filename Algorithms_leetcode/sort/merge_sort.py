@@ -57,7 +57,7 @@ def merge_a(list1,list2):
 
 #归并排序
 def merge_sort(list):
-    if len(list) <= 1:
+    if len(list) <= 1:      # 递归停止条件
         return list
 
     #递归

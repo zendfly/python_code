@@ -1,5 +1,5 @@
 """
-
+每一次pass，pivot大于左边的元素，小于右边的元素
 """
 
 def quick_sort(list):
@@ -7,8 +7,8 @@ def quick_sort(list):
         return list
 
     pivot = list[0]
-    left = quick_sort([x for x in list[1:] if x < pivot])
-    right = quick_sort([x for x in list[1:] if x > pivot])
+    left = quick_sort([x for x in list[1:] if x < pivot])   # 从下表1开始，找出小于pivot的元素
+    right = quick_sort([x for x in list[1:] if x > pivot])  # 从下表1开始，找出大于pivot的元素
 
     return left + [pivot] + right
 
